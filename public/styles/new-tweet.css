@@ -21,7 +21,7 @@
   width: 100%;
 }
 
-section:after {
+section::after {
   content: "";
   display: table;
   clear: both;

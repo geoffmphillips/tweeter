@@ -21,7 +21,7 @@
   line-height: 80px;
 }
 
-#nav-bar:after {
+#nav-bar::after {
   content: "";
   display: table;
   clear: both;
