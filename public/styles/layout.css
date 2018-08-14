@@ -26,7 +26,8 @@ body {
  */
 
  main.container {
+   padding: 100px 2em;
    background-color: white;
-   margin: 140px auto 0;
+   margin: 80px auto 0;
    width: 450px;
  }
