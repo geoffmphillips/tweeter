@@ -1,20 +1,20 @@
-function updateCounterColor(count, countText) {
-  if (countText.innerHTML < 0) {
-    count.css( { "color": "red" })
+function updateCounterColor(target, count) {
+  if (count < 0) {
+    target.css( { "color": "red", "font-weight": "bold" })
   }
-  if (countText.innerHTML >= 0) {
-    count.css( { "color": "#244751" } )
+  if (count >= 0) {
+    target.css( { "color": "#244751", "font-weight": "normal" } )
   }
 }
 
 $(document).ready(function() {
-  let input = $("textarea").on("keydown", function(event) {
-    let stringLength = $(this).val().length;
-    let counter = $(this).parent().children(".counter");
-    let counterText = counter[0];
-    let counterStart = 140;
-    counterText.innerHTML = counterStart - stringLength;
+  $("textarea").on("keydown", function(event) {
+    const currentLength = $(this).val().length;
+    const counter = $($(this).siblings(".counter")[0]);
+    const maxChars = 140;
+    const charCount = MaxChars - currentLength;
+    counter.html(charCount);
 
-    updateCounterColor(counter, counterText);
+    updateCounterColor(counter, charCount);
   });
 });
