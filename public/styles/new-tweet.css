@@ -12,7 +12,6 @@
 }
 
 .new-tweet .counter {
-  text-align: right;
   float: right;
   font-style: italic;
 }

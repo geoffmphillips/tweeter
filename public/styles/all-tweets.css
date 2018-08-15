@@ -1,0 +1,27 @@
+#all-tweets header img {
+ height: 80px;
+ width: 80px;
+ float: left;
+}
+
+#all-tweets header .img::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.icons footer {
+  border: 1px solid black;
+}
+
+.icons img {
+  float: right;
+  height: 20px;
+  width: 20px;
+}
+
+.icons img::after {
+  content: "";
+  display: table;
+  clear: both;
+}
