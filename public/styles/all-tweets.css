@@ -3,9 +3,26 @@
   border: #ccc solid 1px;
   border-radius: 10px;
 }
-.all-tweets:hover {
-  border: #000 solid 1px;
+
+#all-tweets-one {
+  opacity: 0.5;
 }
+
+#all-tweets-one:hover {
+  opacity: 1;
+}
+
+#all-tweets-one footer p {
+  opacity: 1;
+}
+#all-tweets-one .icons {
+  visibility: hidden;
+}
+
+#all-tweets-one:hover .icons {
+  visibility: visible;
+}
+
 
 .all-tweets header {
   padding: 15px;

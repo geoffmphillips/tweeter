@@ -12,7 +12,7 @@ $(document).ready(function() {
     const currentLength = $(this).val().length;
     const counter = $($(this).siblings(".counter")[0]);
     const maxChars = 140;
-    const charCount = MaxChars - currentLength;
+    const charCount = maxChars - currentLength;
     counter.html(charCount);
 
     updateCounterColor(counter, charCount);
