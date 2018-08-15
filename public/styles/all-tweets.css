@@ -41,7 +41,7 @@
 .all-tweets h3 {
   float: left;
   margin: 0 0 0 10px;
-  width: 50px;
+  width: auto;
   padding: 5px 0;
 }
 
