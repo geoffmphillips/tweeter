@@ -47,77 +47,76 @@ $(function() {
   }
 ];
 
-  function createArticle() {
-    const $output = $("<article>");
-    $output.attr("class", "all-tweets")
-    $output.attr("id", "all-tweets")
+  function $createArticle() {
+    const $output = $("<article>")
+      .addClass("all-tweets")
+      .attr("id", "all-tweets");
     return $output;
   }
 
-  function createHeader(userdata) {
+  function $createHeader(userdata) {
     const $output = $("<header>");
 
-    const $img = $("<img>");
-    $img.attr("src", `${userdata.avatars.small}`);
-    $img.attr("alt", `${userdata.name}`);
+    const $img = $("<img>")
+      .attr("src", `${userdata.avatars.small}`)
+      .attr("alt", `${userdata.name}`);
 
     const $username = $(`<h3>${userdata.name}</h3>`);
     const $handle = $(`<p>${userdata.handle}</p>`);
 
-    $output.append($img);
-    $output.append($username);
-    $output.append($handle);
+    $output.append($img)
+      .append($username)
+      .append($handle);
 
     return $output;
   }
 
-  function createFooter(timestamp) {
+  function $createFooter(timestamp) {
     const $output = $("<footer>");
-    // Time is initially milliseconds since 1970. Find difference in milliseconds than convert milliseconds to days
+    
     const currentMilliseconds = new Date().getTime();
     const timeDifference = currentMilliseconds - timestamp;
-    const daysAgo = Math.floor(timeDifference / 1000 / 60 / 60 / 24);
+    const daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     const $time = $(`<p>${daysAgo} days ago</p>`)
 
-    $output.append($time);
+    const $iconLike = $createIcon("like");
+    const $iconRetweet = $createIcon("retweet");
+    const $iconFlag = $createIcon("flag");
 
-    const $iconLike = createIcon$("like");
-    const $iconRetweet = createIcon$("retweet");
-    const $iconFlag = createIcon$("flag");
-
-    $output.append($iconLike);
-    $output.append($iconRetweet);
-    $output.append($iconFlag);
+    $output.append($time)
+      .append($iconLike)
+      .append($iconRetweet)
+      .append($iconFlag);
 
     return $output;
   }
 
-  function createIcon$(iconName) {
+  function $createIcon(iconName) {
     const $icon = $("<img>");
-    $icon.attr("class", "icons");
-    $icon.attr("src", "images/" + iconName + ".png");
-    $icon.attr("alt", iconName + " this tweet");
+    $icon.attr("class", "icons")
+      .attr("src", "images/" + iconName + ".png")
+      .attr("alt", iconName + " this tweet");
     return $icon;
   }
 
 
   function createTweetElement(data) {
-    const $output = createArticle();
-    const $header = createHeader(data.user);
-    const $content = $(`<p>${data.content.text}</p>`);
-    const $footer = createFooter(data.created_at);
+    const $output = $createArticle();
+    const $header = $createHeader(data.user);
+    const $content = $("<p>").text(data.content.text);
+    const $footer = $createFooter(data.created_at);
 
-    $output.append($header);
-    $output.append($content);
-    $output.append($footer);
+    $output.append($header)
+      .append($content)
+      .append($footer);
 
     return $output;
   }
 
   function renderTweets(tweets) {
     tweets.forEach(tweet => {
-      const output = createTweetElement(tweet);
-      $("main.container").append(output);
+      const tweetElement = createTweetElement(tweet);
+      $("main.container").append(tweetElement);
     });
   }
 
