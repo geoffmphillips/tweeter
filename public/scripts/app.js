@@ -92,6 +92,7 @@ $(function() {
       $.post("/tweets", data).done(function(tweet) {
       });
     }
+    tweetText = "";
 
   });
 });
