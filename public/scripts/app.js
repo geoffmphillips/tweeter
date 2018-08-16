@@ -100,8 +100,8 @@ $(function() {
     } else {
       textArea.val("");
       $.post("/tweets", data).done(function() {
-        $("section#tweet-container").empty();
         $.get("/tweets").done(function(tweets) {
+          $("section#tweet-container").empty();
           renderTweets(tweets);
         });
       });
