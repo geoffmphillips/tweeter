@@ -4,6 +4,10 @@
   border-radius: 10px;
 }
 
+#all-tweets footer p {
+  opacity: 1;
+}
+
 #all-tweets {
   opacity: 0.5;
 }
@@ -12,9 +16,7 @@
   opacity: 1;
 }
 
-#all-tweets footer p {
-  opacity: 1;
-}
+
 #all-tweets .icons {
   visibility: hidden;
 }

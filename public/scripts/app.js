@@ -66,11 +66,13 @@ $(function() {
     return $output;
   }
 
+  function renderTweet(tweet) {
+    var tweetElement = createTweetElement(tweet);
+    $("#tweet-container").prepend(tweetElement);
+  }
+
   function renderTweets(tweets) {
-    tweets.forEach(function(tweet) {
-      var tweetElement = createTweetElement(tweet);
-      $("main.container").append(tweetElement);
-    });
+    tweets.forEach(renderTweet);
   }
 
   $.get("/tweets").done(function(tweets) {
@@ -87,12 +89,20 @@ $(function() {
     if (tweetText === "" || tweetText === null) {
       alert("Empty tweet! Please type a tweet before sending")
     } else if (tweetText.length > 140) {
+      textArea.val("");
       alert("Tweet is too long! Tweets can only be 140 characters")
     } else {
-      $.post("/tweets", data).done(function(tweet) {
+      textArea.val("");
+      $.post("/tweets", data).done(function() {
+        // if successfull
+        // create a tweet object using the local data.
+        // render that tweet
+
+        // Not right, but idk the righ way. Sam's fault
+        $.get("/tweets").done(function(tweets) {
+          renderTweet(tweets[tweets.length - 1]);
+        });
       });
     }
-    tweetText = "";
-
   });
 });
