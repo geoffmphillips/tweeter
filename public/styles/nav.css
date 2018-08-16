@@ -22,6 +22,36 @@
   line-height: 80px;
 }
 
+#nav-bar div {
+  float: right;
+  background-color: #fff;
+  border: #000 solid 1px;
+  border-radius: 5px;
+  width: 150px;
+  height: 60px;
+  margin-top: 10px;
+}
+
+#nav-bar div:hover p {
+  color: #000;
+  font-weight: bold;
+}
+
+#nav-bar div img {
+  float: left;
+  height: 20px;
+  width: 20px;
+  margin: 20px 15px;
+  color: #00a087;
+}
+
+#nav-bar p {
+  font-size: 20px;
+  margin: 18px 0;
+  float: left;
+  color: #00a087;
+}
+
 #nav-bar::after {
   content: "";
   display: table;

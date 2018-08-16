@@ -85,24 +85,35 @@ $(function() {
     var textArea = $(this).children("textarea");
     var tweetText = textArea.val();
     var data = textArea.serialize();
+    var error = $(this).siblings(".error");
+
+    if(error.text() !== "") {
+      error.slideUp("fast");
+      error.text("");
+    }
 
     if (tweetText === "" || tweetText === null) {
-      alert("Empty tweet! Please type a tweet before sending")
+      error.text("Empty tweet! Please type a tweet before sending");
+      error.slideDown("fast");
     } else if (tweetText.length > 140) {
-      textArea.val("");
-      alert("Tweet is too long! Tweets can only be 140 characters")
+      error.text("Tweet is too long! Tweets can only be 140 characters");
+      error.slideDown("fast");
     } else {
       textArea.val("");
       $.post("/tweets", data).done(function() {
-        // if successfull
-        // create a tweet object using the local data.
-        // render that tweet
-
-        // Not right, but idk the righ way. Sam's fault
+        // Not right, but idk the right way. Sam's fault
         $.get("/tweets").done(function(tweets) {
           renderTweet(tweets[tweets.length - 1]);
         });
       });
     }
+  });
+
+  $("div.toggle-button").on("click", function(event) {
+    $("section.new-tweet").slideToggle("slow", function() {
+      $("#auto-focus-on-toggle").focus();
+      $("p.error").text("");
+
+    });
   });
 });

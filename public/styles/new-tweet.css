@@ -1,6 +1,6 @@
 .new-tweet {
-  border-radius: 10px;
   border: #ccc solid 1px;
+  border-radius: 10px;
   background-color: #eee;
   padding: 15px;
 }
@@ -18,6 +18,15 @@
 
 .new-tweet textarea {
   width: 100%;
+}
+
+.new-tweet p.error {
+  color: #fff;
+  background-color: #c51244;
+  display: none;
+  margin: 10px 0 0 0;
+  border-radius: 2px;
+  padding: 4px;
 }
 
 section::after {
