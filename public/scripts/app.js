@@ -100,9 +100,9 @@ $(function() {
     } else {
       textArea.val("");
       $.post("/tweets", data).done(function() {
-        // Not right, but idk the right way. Sam's fault
+        $("section#tweet-container").empty();
         $.get("/tweets").done(function(tweets) {
-          renderTweet(tweets[tweets.length - 1]);
+          renderTweets(tweets);
         });
       });
     }
