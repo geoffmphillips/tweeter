@@ -89,7 +89,6 @@ $(function() {
 
     if(error.text() !== "") {
       error.slideUp("fast");
-      error.text("");
     }
 
     if (tweetText === "" || tweetText === null) {
@@ -113,7 +112,6 @@ $(function() {
     $("section.new-tweet").slideToggle("slow", function() {
       $("#auto-focus-on-toggle").focus();
       $("p.error").text("");
-
     });
   });
 });
