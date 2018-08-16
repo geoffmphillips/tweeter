@@ -86,6 +86,7 @@ $(function() {
     var tweetText = textArea.val();
     var data = textArea.serialize();
     var error = $(this).siblings(".error");
+    var counter = textArea.siblings(".counter");
 
     if(error.text() !== "") {
       error.slideUp("fast");
@@ -99,6 +100,7 @@ $(function() {
       error.slideDown("fast");
     } else {
       textArea.val("");
+      counter.text(140);
       $.post("/tweets", data).done(function() {
         $.get("/tweets").done(function(tweets) {
           $("section#tweet-container").empty();
@@ -109,9 +111,12 @@ $(function() {
   });
 
   $("div.toggle-button").on("click", function(event) {
-    $("section.new-tweet").slideToggle("slow", function() {
-      $("#auto-focus-on-toggle").focus();
-      $("p.error").text("");
+    var sectionNewTweet = $("section.new-tweet");
+    var autoFocus = sectionNewTweet.find("#auto-focus-on-toggle");
+    var pError = sectionNewTweet.find("p.error");
+    sectionNewTweet.slideToggle("slow", function() {
+      autoFocus.focus();
+      pError.text("");
     });
   });
 });
