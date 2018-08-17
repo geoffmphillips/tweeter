@@ -1,4 +1,4 @@
-$(document).ready(function() {  
+$(function() {  
   function updateCounterColor(target, count) {
     if (count < 0) {
       target.css( { "color": "red", "font-weight": "bold" })

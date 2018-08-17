@@ -1,5 +1,4 @@
 $(function() {
-
   function $createArticle() {
     var $output = $("<article>")
       .addClass("all-tweets")
