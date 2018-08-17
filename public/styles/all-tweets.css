@@ -1,56 +1,54 @@
 .all-tweets {
+  transition: border 0.25s;
   margin: 20px 0;
   border: #ccc solid 1px;
   border-radius: 10px;
 }
 
-#all-tweets footer p {
+.all-tweets:hover {
+  border: #555 solid 1px;
+}
+
+.all-tweets .icons {
+  transition: opacity 0.25s;
+  opacity: 0;
+}
+
+.all-tweets:hover .icons {
   opacity: 1;
 }
-
-#all-tweets {
-  opacity: 0.5;
-}
-
-#all-tweets:hover {
-  opacity: 1;
-}
-
-
-#all-tweets .icons {
-  visibility: hidden;
-}
-
-#all-tweets:hover .icons {
-  visibility: visible;
-}
-
 
 .all-tweets header {
-  padding: 15px;
+  transition: opacity 0.25s;
+  opacity: 0.5;
+  padding: 7.5px;
   height: 60px;
   background-color: #eee;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
+.all-tweets:hover header {
+  opacity: 1;
+}
+
 .all-tweets header img {
-  height: 30px;
-  width: 30px;
-  border-radius: 5px;
+  height: 45px;
+  width: 45px;
+  border-radius: 7px;
   float: left;
 }
 
 .all-tweets h3 {
   float: left;
+  padding: 12px 5px;
   margin: 0 0 0 10px;
   width: auto;
-  padding: 5px 0;
 }
 
 .all-tweets header p {
   float: right;
-  padding: 5px 0 0 0;
+  padding: 13px 5px;
   margin: 0;
 }
 

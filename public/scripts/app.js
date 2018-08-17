@@ -56,7 +56,7 @@ $(function() {
   function createTweetElement(data) {
     var $output = $createArticle();
     var $header = $createHeader(data.user);
-    var $content = $("<p>").text(data.content.text);
+    var $content = $("<p>").attr("class", "tweet-content").text(data.content.text);
     var $footer = $createFooter(data.created_at);
 
     $output.append($header)
