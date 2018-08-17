@@ -1,4 +1,4 @@
-$(function() {  
+$(function() {
   function updateCounterColor(target, count) {
     if (count < 0) {
       target.css( { "color": "red", "font-weight": "bold" })
@@ -9,10 +9,10 @@ $(function() {
   }
 
   $("textarea").on("keyup", function(event) {
-    const currentLength = $(this).val().length;
-    const counter = $($(this).siblings(".counter")[0]);
-    const maxChars = 140;
-    const charCount = maxChars - currentLength;
+    var currentLength = $(this).val().length;
+    var counter = $($(this).siblings(".counter")[0]);
+    var maxChars = 140;
+    var charCount = maxChars - currentLength;
     counter.html(charCount);
 
     updateCounterColor(counter, charCount);

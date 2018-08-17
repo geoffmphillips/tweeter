@@ -1,11 +1,4 @@
 $(function() {
-  function $createArticle() {
-    var $output = $("<article>")
-      .addClass("all-tweets")
-      .attr("id", "all-tweets");
-    return $output;
-  }
-
   function $createHeader(userdata) {
     var $output = $("<header>");
 
@@ -27,6 +20,7 @@ $(function() {
     var $output = $("<footer>");
 
     var currentMilliseconds = new Date().getTime();
+    // + 1000 to avoid displaying tweets that say they were posted -1 days ago
     var timeDifference = currentMilliseconds - timeOfTweet + 1000;
     var numOfDays = Math.round(timeDifference / (1000 * 60 * 60 * 24));
     var $time = $("<p>").text(numOfDays + " days ago");
@@ -53,7 +47,7 @@ $(function() {
 
 
   function createTweetElement(data) {
-    var $output = $createArticle();
+    var $output = $("<article>").addClass("all-tweets");
     var $header = $createHeader(data.user);
     var $content = $("<p>").attr("class", "tweet-content").text(data.content.text);
     var $footer = $createFooter(data.created_at);
@@ -98,9 +92,11 @@ $(function() {
       error.text("Tweet is too long! Tweets can only be 140 characters");
       error.slideDown("fast");
     } else {
+      // Clears text area and resets counter to 140
       textArea.val("");
       counter.text(140);
       $.post("/tweets", data).done(function() {
+        // Nesting HTTP requests like this is bad practice but in this assignment GET requests are how we get user data
         $.get("/tweets").done(function(tweets) {
           $("section#tweet-container").empty();
           renderTweets(tweets);

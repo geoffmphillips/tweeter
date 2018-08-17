@@ -1,6 +1,8 @@
 "use strict";
 
 require('dotenv').config()
+
+// Port is provided by heroku or defaults to localhost
 const PORT          = process.env.PORT || 8080;
 const express       = require("express");
 const bodyParser    = require("body-parser");
@@ -10,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 const MongoClient = require("mongodb").MongoClient;
+
+// Connects to heroku db or local db
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/tweeter";
 
 MongoClient.connect(MONGODB_URI, (err, db) => {
@@ -27,5 +31,5 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 
 
 app.listen(PORT, () => {
-  console.log("Example app listening on port " + PORT);
+  console.log("Listening on port " + PORT);
 });
