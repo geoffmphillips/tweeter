@@ -23,6 +23,7 @@
 }
 
 #nav-bar div {
+  opacity: 0.8;
   float: right;
   background-color: #fff;
   border: #000 solid 1px;
@@ -32,12 +33,18 @@
   margin-top: 10px;
 }
 
+#nav-bar div:hover {
+  opacity: 1;
+}
+
 #nav-bar div:hover p {
+  opacity: 1;
   color: #000;
   font-weight: bold;
 }
 
 #nav-bar div img {
+  opacity: 0.75;
   float: left;
   height: 20px;
   width: 20px;

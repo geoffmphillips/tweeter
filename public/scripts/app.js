@@ -113,7 +113,6 @@ $(function() {
   $("div.toggle-button").on("click", function(event) {
     var sectionNewTweet = $("section.new-tweet");
     var autoFocus = sectionNewTweet.find("#auto-focus-on-toggle");
-    var pError = sectionNewTweet.find("p.error");
     sectionNewTweet.slideToggle("slow", function() {
       autoFocus.focus();
     });

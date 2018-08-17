@@ -21,6 +21,7 @@
 }
 
 .new-tweet p.error {
+  text-align: center;
   color: #fff;
   background-color: #c51244;
   display: none;
