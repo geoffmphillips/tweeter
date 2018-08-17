@@ -28,8 +28,8 @@ $(function() {
     var $output = $("<footer>");
 
     var currentMilliseconds = new Date().getTime();
-    var timeDifference = currentMilliseconds - timeOfTweet;
-    var numOfDays = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    var timeDifference = currentMilliseconds - timeOfTweet + 1000;
+    var numOfDays = Math.round(timeDifference / (1000 * 60 * 60 * 24));
     var $time = $("<p>").text(numOfDays + " days ago");
 
     var $iconLike = $createIcon("like");
@@ -116,7 +116,6 @@ $(function() {
     var pError = sectionNewTweet.find("p.error");
     sectionNewTweet.slideToggle("slow", function() {
       autoFocus.focus();
-      pError.text("");
     });
   });
 });
