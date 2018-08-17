@@ -2,6 +2,11 @@
 
 Tweeter is a simple, single-page Twitter clone. Tweeter uses HTML, CSS, JS, jQuery and AJAX for front-end and Node, Express and MongoDB for back-end.
 
+## Final Product
+
+![Home page with CSS transitions]()
+![Error messages pop down when there is a user error]()
+
 ## Getting Started
 
 - Install all dependencies (using the ```npm install``` command).
@@ -11,6 +16,7 @@ Tweeter is a simple, single-page Twitter clone. Tweeter uses HTML, CSS, JS, jQue
 
 - Body Parser
 - Chance
+- dotenv
 - Express
 - MongoDB
 - MD5
