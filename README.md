@@ -6,7 +6,7 @@ Tweeter is a simple, single-page Twitter clone. Tweeter uses HTML, CSS, JS, jQue
 
 ![Home page with CSS transitions](https://github.com/geoffmphillips/tweeter/blob/master/docs/csstransition.png)
 ![Relevant error messages pop down](https://github.com/geoffmphillips/tweeter/blob/master/docs/error.png)
-![The compose message toggles slide up and slide down of the compose tweet box]()
+![The compose message toggles slide up and slide down of the compose tweet box](https://github.com/geoffmphillips/tweeter/blob/master/docs/compose.png)
 
 ## Getting Started
 
